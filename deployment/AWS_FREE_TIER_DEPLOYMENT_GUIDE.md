@@ -81,7 +81,7 @@ ssh -i "sanjay-portfolio-key.pem" ubuntu@<YOUR_EC2_PUBLIC_IP>
 In your EC2 terminal:
 ```bash
 # Clone your GitHub repository (or upload the project)
-git clone https://github.com/Sanjay-dev045/Portfolio-Fullstack.git portfolio
+git clone https://github.com/Sanjaygithub-87/Portfolio-website.git portfolio
 cd portfolio
 ```
 

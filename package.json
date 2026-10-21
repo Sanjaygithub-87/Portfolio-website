@@ -1,0 +1,22 @@
+{
+  "name": "sanjay-portfolio-workspace",
+  "version": "1.0.0",
+  "description": "Full-Stack Portfolio Website for Sanjay S (Next.js, Node.js, Express, MongoDB, AWS)",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "seed": "npm --prefix backend run seed",
+    "build:frontend": "npm --prefix frontend run build",
+    "start:backend": "npm --prefix backend run start",
+    "start:frontend": "npm --prefix frontend run start"
+  },
+  "keywords": [
+    "nextjs",
+    "nodejs",
+    "mongodb",
+    "portfolio",
+    "aws-free-tier",
+    "full-stack"
+  ],
+  "author": "Sanjay S <Sanjayedu045@gmail.com>"
+}

@@ -17,7 +17,7 @@ export default function Home() {
   const [resumeOpen, setResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#090d16] text-slate-100 flex flex-col selection:bg-cyan-500 selection:text-slate-950">
+    <div className="relative min-h-screen bg-slate-50 text-slate-900 flex flex-col selection:bg-blue-600 selection:text-white">
       {/* Top Navbar */}
       <Navbar onOpenResume={() => setResumeOpen(true)} />
 

@@ -2,7 +2,7 @@ export interface ProjectItem {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Full Stack' | 'AI & ML' | 'Automation';
+  category: 'AI & ML' | 'Automation' | 'Full Stack';
   description: string;
   highlights: string[];
   techStack: string[];
@@ -10,6 +10,8 @@ export interface ProjectItem {
   liveUrl?: string;
   featured: boolean;
   metrics?: string;
+  imageUrl?: string; // Direct image URL or local path like '/projects/ai-rec.png'
+  accentColor?: string;
 }
 
 export interface SkillCategory {
@@ -50,184 +52,195 @@ export interface CertificationItem {
 
 export const PERSONAL_INFO = {
   name: "SANJAY S",
-  title: "Full-Stack Developer & AI Enthusiast",
-  subheading: "B.E. Computer Science (2025) • React & Next.js • Node.js • Java • MongoDB & SQL • n8n Automation",
+  role: "AI Engineer & AI Developer",
+  title: "AI Engineer & AI Developer | n8n Automation Specialist",
+  subheading: "Groq LLM API • Computer Vision ML Models • n8n Workflow Pipelines • React & Next.js • Node.js",
   email: "Sanjayedu045@gmail.com",
   phone: "+91 9345030051",
   location: "Chennai, Tamil Nadu, India",
   graduationYear: "2025",
   github: "https://github.com/Sanjaygithub-87",
   linkedin: "https://linkedin.com/in/sanjay-s-cse",
-  statusBadge: "Available for Full-Time Roles (Fresher 2025)",
+  statusBadge: "Available for AI & Automation Projects | Client Consulting & High-Impact Roles",
+  // You can set avatarUrl to a direct image URL (e.g. from Imgur, Cloudinary, GitHub) OR place a photo named 'profile.jpg' in 'frontend/public/' folder!
+  avatarUrl: "/profile.jpg", 
   careerObjective:
-    "A 2025 Computer Science Engineering graduate (Fresher) with a solid foundation across front-end, back-end, and database technologies, along with practical experience building complete, working applications. Comfortable working across the stack — from designing clean, responsive interfaces to building server-side logic and managing data. Eager to start my career as a Developer and contribute to a team through strong fundamentals, adaptability, and a genuine interest in problem-solving.",
+    "Passionate AI Engineer and AI Developer with hands-on experience designing end-to-end intelligent systems, real-time Computer Vision models, and enterprise-grade n8n workflow automations. Backed by an 83% B.E. Computer Science degree and full-stack software engineering fundamentals, I build reliable, high-performance applications that transform business operations and user experiences through artificial intelligence.",
   stats: [
-    { label: "Graduation Score", value: "83%", sub: "B.E. Computer Science" },
-    { label: "Production Projects", value: "5+", sub: "Web, AI & Automation" },
-    { label: "Internships Completed", value: "3", sub: "Hands-on Experience" },
-    { label: "Recognition Accuracy", value: "90%+", sub: "AI Sign Translator" },
+    { label: "AI Translation Accuracy", value: "90%+", sub: "Computer Vision ML Model" },
+    { label: "AI Response Latency", value: "< 1s", sub: "Groq LLM Inference" },
+    { label: "Automated Workflows", value: "100%", sub: "Multi-Platform n8n Pipelines" },
+    { label: "Academic Standing", value: "83%", sub: "B.E. Computer Science 2025" },
   ],
 };
 
 export const PROJECTS_DATA: ProjectItem[] = [
   {
     id: "ai-product-recommendation",
-    title: "AI-Powered Product Recommendation System",
-    subtitle: "High-Speed LLM E-Commerce Engine powered by Groq API",
+    title: "AI-Powered Product Recommendation Engine",
+    subtitle: "Real-Time LLM Suggestion Engine powered by Groq API",
     category: "AI & ML",
     description:
-      "A next-generation product discovery system combining a responsive React user interface with ultra-low latency Groq API inference. Delivers personalized shopping suggestions by analyzing user intent and browsing signals in real-time.",
+      "Next-generation AI discovery platform combining a responsive React interface with ultra-low latency Groq LLM API. Intelligently analyzes user queries, behavioral signals, and context to generate personalized e-commerce suggestions in sub-second speed.",
     highlights: [
-      "Built dynamic front-end in React with clean component modularity, custom hooks, and state management",
-      "Integrated Groq API for sub-second LLM inference, delivering tailored recommendations on demand",
-      "Implemented responsive product catalogue filtering, dynamic search, and interactive suggestion cards",
+      "Engineered prompt-optimized LLM pipeline leveraging Groq API for lightning-fast (< 1s) contextual inferences",
+      "Built dynamic, interactive React client architecture with state management and intuitive search queries",
+      "Designed responsive product recommendation cards with real-time feedback and preference filtering",
     ],
-    techStack: ["React", "Groq API", "JavaScript", "Tailwind CSS", "REST API", "Prompt Engineering"],
+    techStack: ["Groq LLM API", "React", "AI Prompt Engineering", "JavaScript", "Tailwind CSS", "REST API"],
     githubUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
-    metrics: "< 1s AI Response Time",
+    metrics: "< 1s AI Response",
+    imageUrl: "/projects/ai-recommendation.png",
+    accentColor: "from-blue-600 to-cyan-500",
   },
   {
     id: "ai-sign-language-translator",
     title: "AI-Powered Sign Language Translator",
-    subtitle: "Real-Time Computer Vision Gesture-to-Text Accessibility Tool",
+    subtitle: "Real-Time Computer Vision Gesture-to-Text Recognition System",
     category: "AI & ML",
     description:
-      "An assistive communication tool leveraging Python and computer vision machine learning models to capture camera hand gestures and translate them to live readable text with 90%+ recognition accuracy.",
+      "Assistive artificial intelligence system leveraging Python, OpenCV, and deep machine learning classification models. Captures video feed gestures and translates hand signs into readable text in real-time with 90%+ recognition accuracy.",
     highlights: [
-      "Engineered real-time gesture-to-text pipeline to bridge communication barriers for hearing-impaired individuals",
-      "Achieved 90%+ recognition accuracy using Python-based ML models trained for multi-gesture classification",
-      "Optimized frame processing pipeline for low-latency live camera feed analysis",
+      "Trained and evaluated Python-based machine learning classification models achieving 90%+ gesture accuracy",
+      "Engineered real-time frame capture pipeline with OpenCV to process continuous video streams with minimal latency",
+      "Designed for high accessibility to empower hearing-impaired users with seamless communication tools",
     ],
     techStack: ["Python", "OpenCV", "Machine Learning", "Computer Vision", "NumPy", "Scikit-Learn"],
     githubUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
-    metrics: "90%+ Accuracy",
+    metrics: "90%+ ML Accuracy",
+    imageUrl: "/projects/sign-language.png",
+    accentColor: "from-cyan-500 to-blue-600",
   },
   {
     id: "n8n-workflow-automation",
-    title: "n8n Workflow Automation Engine",
-    subtitle: "End-to-End Multi-Channel Marketing & Social Media Automation",
+    title: "n8n Enterprise Workflow Automation Pipeline",
+    subtitle: "Automated Multi-Channel Marketing & Social Distribution Engine",
     category: "Automation",
     description:
-      "Enterprise-grade workflow automation architected on n8n. Seamlessly orchestrates automated email campaigns and synchronized social media posts across Gmail, LinkedIn, and Facebook with webhooks and error recovery.",
+      "Robust automation architecture built on n8n. Seamlessly orchestrates automated email campaigns and cross-platform social media posting across Gmail, LinkedIn, and Facebook with webhooks, conditional routing, and automated recovery.",
     highlights: [
-      "Automated email campaigns and multi-platform social media distribution across Gmail, LinkedIn, and Facebook",
-      "Engineered REST webhook triggers, HTTP request nodes, conditional branching, and JSON payload mapping",
-      "Configured robust error handling, automated retry logic, and monitoring notifications for reliable uptime",
+      "Automated cross-platform distribution and email campaigns across Gmail, LinkedIn, and Facebook without manual intervention",
+      "Configured webhook listeners, REST HTTP nodes, conditional logic branching, and dynamic JSON transformations",
+      "Engineered fault-tolerant error boundaries with automated alerts and retry queues for maximum delivery reliability",
     ],
-    techStack: ["n8n", "Webhooks", "REST APIs", "JSON Mapping", "Gmail API", "LinkedIn API", "Error Handling"],
+    techStack: ["n8n Automation", "Webhooks", "REST APIs", "JSON Data Pipelines", "Gmail API", "LinkedIn API"],
     githubUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
-    metrics: "100% Automated Campaigns",
+    metrics: "100% Automated Workflow",
+    imageUrl: "/projects/n8n-automation.png",
+    accentColor: "from-blue-500 to-indigo-600",
   },
   {
     id: "student-management-system",
-    title: "Full-Stack Student Management System",
-    subtitle: "Enterprise Academic Portal with Role-Based Authentication",
+    title: "Full-Stack Enterprise Management System",
+    subtitle: "Institutional Portal with Role-Based Authentication & MVC",
     category: "Full Stack",
     description:
-      "Secure, comprehensive institutional management portal engineered using Java Servlets, JDBC, and MySQL. Implements MVC design architecture for role-based access control, student records, and grade reporting.",
+      "Secure, comprehensive institutional management portal engineered using Java Servlets, JDBC, and MySQL. Adheres strictly to standard MVC architecture for role-based authentication, student profiles, attendance, and grading.",
     highlights: [
-      "Developed secure web application with role-based access (Admin, Faculty, Student) and full CRUD operations",
-      "Strictly adhered to MVC architecture ensuring decoupled business logic, controllers, and persistence layers",
-      "Designed normalized MySQL database schemas, optimized SQL queries, and robust JDBC transactions",
+      "Developed secure authentication with role-based access control (Admin, Faculty, Student) and complete CRUD operations",
+      "Followed strict MVC architecture ensuring decoupled business logic, controllers, and database access layers",
+      "Designed normalized relational MySQL schemas, optimized SQL queries, and robust JDBC transactions",
     ],
     techStack: ["Java", "Java Servlets", "JDBC", "MySQL", "MVC Architecture", "HTML5/CSS3", "JavaScript"],
     githubUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
     metrics: "Role-Based Security",
+    imageUrl: "/projects/student-system.png",
+    accentColor: "from-cyan-600 to-blue-700",
   },
   {
     id: "modern-developer-portfolio",
-    title: "Production Portfolio & Cloud Deployment",
-    subtitle: "Full-Stack Web Platform with AWS Free Tier Cloud Architecture",
+    title: "Full-Stack Production Portfolio Platform",
+    subtitle: "Production Next.js 16 + Node.js App on AWS Cloud",
     category: "Full Stack",
     description:
-      "This responsive, high-performance portfolio application built with Next.js (App Router, Tailwind CSS) on the frontend and Node.js/Express + MongoDB on the backend, complete with automated AWS Free Tier hosting scripts.",
+      "Modern, responsive personal portfolio platform engineered with Next.js 16 (App Router, Tailwind CSS) on the frontend and Node.js Express + MongoDB on the backend, hosted on AWS EC2 Free Tier with custom domain and SSL.",
     highlights: [
-      "Responsive glassmorphic UI with dark/light themes, interactive project filters, and live visit tracker",
-      "Connected to custom Express.js backend with MongoDB Mongoose schema validation for message storage",
-      "Configured with PM2 process manager, Nginx reverse proxy, and SSL setup ready for AWS EC2 Free Tier",
+      "Designed shining blue & white cyber aesthetic with mobile-first responsiveness and smooth interactions",
+      "Integrated dedicated Node.js/MongoDB API for inquiries and live interaction tracking",
+      "Configured automated deployment pipeline with PM2 zero-downtime reloads and Nginx reverse proxy",
     ],
-    techStack: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "AWS EC2", "Nginx"],
+    techStack: ["Next.js 16", "React 19", "Node.js", "Express", "MongoDB", "Tailwind CSS", "AWS EC2", "Nginx"],
     githubUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
-    metrics: "Next.js + Node + Mongo",
+    metrics: "AWS Free Tier Live",
+    imageUrl: "/projects/portfolio.png",
+    accentColor: "from-blue-600 to-sky-400",
   },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: "Front-End Development",
+    title: "AI & Machine Learning",
+    categoryKey: "ai",
+    iconName: "Bot",
+    description: "Developing intelligent LLM applications & Computer Vision models",
+    skills: [
+      { name: "Groq LLM API", level: 92, tag: "High Speed" },
+      { name: "Prompt Engineering", level: 90, tag: "Applied AI" },
+      { name: "Python (ML & OpenCV)", level: 85, tag: "Vision" },
+      { name: "Model Integration", level: 88, tag: "Production" },
+      { name: "Computer Vision Gestures", level: 88, tag: "90%+ Acc" },
+    ],
+  },
+  {
+    title: "Workflow Automation (n8n)",
+    categoryKey: "automation",
+    iconName: "Zap",
+    description: "Orchestrating end-to-end automated pipelines and business systems",
+    skills: [
+      { name: "n8n Workflow Builder", level: 95, tag: "Expert" },
+      { name: "Webhook Triggers", level: 92, tag: "Event-Driven" },
+      { name: "JSON Data Transformation", level: 94, tag: "Data Mapping" },
+      { name: "REST API Integration", level: 92, tag: "Integration" },
+      { name: "Error Handling & Retries", level: 90, tag: "Reliability" },
+    ],
+  },
+  {
+    title: "Full-Stack Development",
     categoryKey: "frontend",
     iconName: "Layout",
-    description: "Creating fluid, responsive, and accessible user experiences",
+    description: "Building responsive, modern, high-performance web applications",
     skills: [
-      { name: "React", level: 90, tag: "Core" },
-      { name: "Next.js", level: 85, tag: "Modern" },
-      { name: "JavaScript (ES6+)", level: 88, tag: "Core" },
-      { name: "HTML5 & CSS3", level: 92, tag: "Fundamental" },
-      { name: "Tailwind CSS", level: 90, tag: "Styling" },
-      { name: "Responsive Web Design", level: 95, tag: "Mobile-First" },
-    ],
-  },
-  {
-    title: "Back-End & Architecture",
-    categoryKey: "backend",
-    iconName: "Server",
-    description: "Robust server logic, RESTful APIs, and scalable architectures",
-    skills: [
-      { name: "Node.js & Express", level: 85, tag: "API Layer" },
-      { name: "Java (Core & OOP)", level: 88, tag: "Language" },
+      { name: "React & Next.js", level: 90, tag: "Modern" },
+      { name: "Node.js & Express", level: 86, tag: "APIs" },
+      { name: "JavaScript (ES6+)", level: 90, tag: "Core" },
+      { name: "Tailwind CSS", level: 92, tag: "Styling" },
       { name: "Java Servlets & JDBC", level: 85, tag: "Enterprise" },
-      { name: "RESTful API Integration", level: 90, tag: "Integration" },
-      { name: "MVC Architecture", level: 90, tag: "Pattern" },
-      { name: "SDLC & Clean Code", level: 88, tag: "Engineering" },
     ],
   },
   {
-    title: "Database Management",
+    title: "Databases & Architecture",
     categoryKey: "database",
     iconName: "Database",
-    description: "Structured relational models & modern NoSQL document stores",
+    description: "Data persistence across relational models and NoSQL document stores",
     skills: [
-      { name: "MongoDB & Mongoose", level: 85, tag: "NoSQL" },
-      { name: "MySQL", level: 88, tag: "RDBMS" },
-      { name: "SQL Queries & Joins", level: 87, tag: "Data Querying" },
-      { name: "Schema Design", level: 85, tag: "Modeling" },
+      { name: "MongoDB & Mongoose", level: 86, tag: "NoSQL" },
+      { name: "MySQL & SQL Queries", level: 88, tag: "RDBMS" },
+      { name: "MVC Architecture", level: 90, tag: "Design Pattern" },
+      { name: "Database Schema Design", level: 85, tag: "Modeling" },
       { name: "CRUD Operations", level: 92, tag: "Operations" },
     ],
   },
   {
-    title: "Automation & AI Integration",
-    categoryKey: "automation",
-    iconName: "Zap",
-    description: "Connecting AI models and automating cross-platform business workflows",
-    skills: [
-      { name: "n8n Workflow Automation", level: 92, tag: "Automation" },
-      { name: "Webhook Triggers", level: 90, tag: "Event-Driven" },
-      { name: "Groq API Integration", level: 88, tag: "AI / LLM" },
-      { name: "Python ML & OpenCV", level: 82, tag: "Computer Vision" },
-      { name: "JSON Data Mapping", level: 92, tag: "Data Pipeline" },
-    ],
-  },
-  {
-    title: "BI, Analytics & Tools",
+    title: "Analytics, Cloud & Tools",
     categoryKey: "tools",
     iconName: "BarChart3",
-    description: "Business intelligence dashboards and developer productivity tooling",
+    description: "Business analytics, cloud hosting environments, and developer tooling",
     skills: [
       { name: "IBM Cognos Analytics", level: 85, tag: "Certified" },
+      { name: "AWS Free Tier (EC2/Nginx)", level: 85, tag: "Cloud" },
       { name: "Git & GitHub", level: 90, tag: "Version Control" },
-      { name: "Agile & Scrum Workflows", level: 85, tag: "Methodology" },
-      { name: "VS Code & Postman", level: 92, tag: "Productivity" },
-      { name: "AWS Free Tier (EC2/Nginx)", level: 82, tag: "Cloud" },
+      { name: "Postman & API Testing", level: 90, tag: "Tooling" },
+      { name: "Agile & SDLC Best Practices", level: 88, tag: "Workflow" },
     ],
   },
 ];
@@ -241,11 +254,11 @@ export const EXPERIENCES: ExperienceItem[] = [
     year: "2024",
     location: "Chennai, India",
     description:
-      "Collaborated on enterprise Java backend modules and interactive front-end web interfaces adhering to software development life cycle (SDLC) best practices.",
+      "Engineered enterprise Java backend modules and interactive user interfaces following strict SDLC principles, database optimization, and agile team sprint cycles.",
     points: [
-      "Engineered Java backend modules and user-facing HTML/CSS/JavaScript components following SDLC best practices",
+      "Developed Java backend logic and frontend interfaces (HTML, CSS, JavaScript) adhering to SDLC standards",
       "Executed SQL queries and implemented secure CRUD operations for data management routines",
-      "Collaborated using Git version control in Agile sprint cycles with peer developers and mentors",
+      "Collaborated using Git version control and participated in daily Agile project standups",
     ],
     technologies: ["Java", "Servlets", "JDBC", "MySQL", "HTML5", "CSS3", "JavaScript", "Git"],
   },
@@ -257,7 +270,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     year: "2025",
     location: "Remote",
     description:
-      "Managed digital content delivery, WordPress CMS architecture, search engine optimization (SEO), and conversion funnel structures.",
+      "Managed digital content architecture, WordPress CMS optimization, search engine optimization (SEO), and conversion funnel structures.",
     points: [
       "Published and structured SEO-optimized blog content utilizing WordPress CMS with clear CTAs and semantic headings",
       "Optimized content hierarchy and site navigation to elevate user retention and organic reach",
@@ -273,13 +286,13 @@ export const EXPERIENCES: ExperienceItem[] = [
     year: "2025",
     location: "Remote",
     description:
-      "Strengthened full-stack programming, algorithmic debugging, and analytical problem-solving through intensive real-world project modules.",
+      "Strengthened advanced programming, AI integrations, n8n automation pipelines, and analytical problem-solving through intensive real-world project modules.",
     points: [
-      "Strengthened programming, debugging, and analytical skills through structured project-based modules",
+      "Strengthened algorithmic programming, debugging, and analytical skills through structured project-based modules",
       "Implemented full-stack architecture patterns connecting modern frontend interfaces to scalable backend data stores",
-      "Deepened hands-on mastery in modern automation engines and API integrations",
+      "Deepened hands-on mastery in modern automation engines, webhooks, and AI API integrations",
     ],
-    technologies: ["Full-Stack Architecture", "Data Structures", "APIs", "Debugging", "Cloud Hosting"],
+    technologies: ["AI Systems", "n8n Automation", "APIs", "Data Structures", "Cloud Hosting"],
   },
 ];
 
@@ -291,8 +304,8 @@ export const EDUCATION_DATA: EducationItem[] = [
     year: "Graduating 2025",
     status: "Final Year / Graduating Fresher",
     highlights: [
-      "Strong academic standing with an aggregate score of 83%",
-      "Specialized in Software Engineering, Database Management Systems, Computer Networks, and Web Technologies",
+      "Graduating with an aggregate score of 83% Distinction",
+      "Specialized in Artificial Intelligence, Software Engineering, Database Management Systems, and Web Technologies",
       "Active participant in technical symposiums, coding challenges, and collaborative engineering projects",
     ],
   },
@@ -325,12 +338,12 @@ export const CERTIFICATIONS_DATA: CertificationItem[] = [
     title: "IBM Cognos Analytics – Business Intelligence",
     issuer: "IBM",
     skillsCovered: ["Data Analysis", "Executive Reporting", "Data Modeling", "Dashboard Creation"],
-    badgeColor: "from-blue-600 to-indigo-700",
+    badgeColor: "from-blue-600 to-cyan-700",
   },
   {
     title: "Java Full Stack Training Certification",
     issuer: "Pantech / Professional Training",
     skillsCovered: ["Java Core", "Servlets & JSP", "JDBC", "MySQL", "HTML5", "CSS3", "JavaScript"],
-    badgeColor: "from-amber-600 to-orange-700",
+    badgeColor: "from-sky-600 to-blue-700",
   },
 ];

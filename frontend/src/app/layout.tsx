@@ -18,18 +18,20 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "SANJAY S | Full-Stack Developer & AI Solutions Enthusiast",
+  title: "SANJAY S | AI Engineer & AI Developer | n8n Automation Specialist",
   description:
-    "Portfolio of Sanjay S - 2025 Computer Science Engineering graduate, Full-Stack Developer specializing in Next.js, React, Node.js, Express, Java, MongoDB, MySQL, and n8n Workflow Automation.",
+    "Portfolio of Sanjay S - AI Engineer and AI Developer specializing in Groq LLM API, Computer Vision ML models, enterprise n8n workflow automations, React, Next.js, Node.js, and MongoDB.",
   keywords: [
     "Sanjay S",
+    "AI Engineer",
+    "AI Developer",
+    "n8n Workflow Automation",
+    "Groq API",
+    "Computer Vision ML",
     "Full-Stack Developer",
-    "Computer Science Fresher 2025",
     "Next.js Developer",
     "Node.js Express",
     "MongoDB",
-    "Java Servlets",
-    "n8n Automation",
     "Chennai Developer",
     "Arunai Engineering College",
   ],
@@ -46,7 +48,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#090d16] text-slate-100 selection:bg-cyan-500 selection:text-slate-950">
+      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-600 selection:text-white">
         {children}
       </body>
     </html>

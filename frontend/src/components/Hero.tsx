@@ -1,15 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ArrowRight,
   Download,
   Mail,
   Phone,
   Sparkles,
-  Terminal,
-  ExternalLink,
-  CheckCircle2,
+  Bot,
+  Zap,
+  Cpu,
+  BrainCircuit,
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
@@ -19,120 +20,203 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenResume }: HeroProps) {
+  const [imageError, setImageError] = useState(false);
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-grid-pattern">
-      {/* Background radial glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-gradient-to-tr from-cyan-600/15 via-blue-600/15 to-indigo-600/10 blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute top-12 right-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-[90px] pointer-events-none -z-10" />
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-slate-50 bg-grid-light">
+      {/* Soft Blue Ambient Radial Background Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-blue-200/40 via-sky-100/40 to-transparent blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-12 right-10 w-80 h-80 bg-blue-100/50 rounded-full blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-10 w-72 h-72 bg-sky-100/40 rounded-full blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-cyan-500/30 text-cyan-300 text-xs font-medium mb-6 shadow-sm backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span>{PERSONAL_INFO.statusBadge}</span>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          {/* Left Column: Headline, Bio & CTAs */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+            
+            {/* Status Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold mb-6 shadow-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+              </span>
+              <span>{PERSONAL_INFO.statusBadge}</span>
+            </div>
 
-          {/* Name & Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
-            Building scalable apps with <br />
-            <span className="text-gradient">Next.js, Node & AI Systems</span>
-          </h1>
+            {/* Main Headline highlighting AI ENGINEER & AI DEVELOPER */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-[1.18]">
+              Architecting Intelligent Systems as an <br className="hidden sm:inline" />
+              <span className="text-gradient-blue block mt-1">
+                AI Engineer & AI Developer
+              </span>
+            </h1>
 
-          <p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
-            I am <strong className="text-white font-semibold">Sanjay S</strong>, a 2025 Computer Science Engineering
-            graduate with hands-on experience developing end-to-end applications across the modern stack — from
-            responsive front-ends to scalable backend logic, relational & document databases, and AI automation.
-          </p>
+            {/* Focused Career Pitch */}
+            <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed">
+              I am <strong className="text-slate-900 font-bold">Sanjay S</strong>. I specialize in developing production-grade{' '}
+              <strong className="text-blue-600 font-bold">Artificial Intelligence applications</strong>,{' '}
+              <strong className="text-slate-900 font-semibold">real-time Computer Vision models</strong>, and enterprise{' '}
+              <strong className="text-blue-600 font-bold">n8n workflow automation pipelines</strong>. This platform showcases my engineering projects for clients, automated AI integrations, and high-impact technology collaborations.
+            </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5"
-            >
-              <span>View Projects</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-
-            <button
-              onClick={onOpenResume}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-500 transition-all hover:-translate-y-0.5"
-            >
-              <Download className="w-4 h-4 text-cyan-400" />
-              <span>Resume PDF</span>
-            </button>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-300 hover:text-white bg-slate-950/60 hover:bg-slate-900 border border-slate-800 transition-all"
-            >
-              <Mail className="w-4 h-4 text-slate-400" />
-              <span>Contact Sanjay</span>
-            </a>
-          </div>
-
-          {/* Social and Fast Contact Links */}
-          <div className="flex items-center gap-5 text-slate-400 text-xs sm:text-sm mb-14">
-            <a
-              href={`mailto:${PERSONAL_INFO.email}`}
-              className="flex items-center gap-1.5 hover:text-cyan-400 transition"
-              title="Send an Email"
-            >
-              <Mail className="w-4 h-4 text-cyan-400" />
-              <span className="hidden sm:inline">{PERSONAL_INFO.email}</span>
-              <span className="sm:hidden">Email</span>
-            </a>
-            <span className="text-slate-700">•</span>
-            <a
-              href={`tel:${PERSONAL_INFO.phone}`}
-              className="flex items-center gap-1.5 hover:text-cyan-400 transition"
-              title="Call Sanjay"
-            >
-              <Phone className="w-4 h-4 text-cyan-400" />
-              <span>{PERSONAL_INFO.phone}</span>
-            </a>
-            <span className="text-slate-700">•</span>
-            <a
-              href={PERSONAL_INFO.github}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 hover:text-cyan-400 transition"
-            >
-              <GithubIcon className="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-            <span className="text-slate-700">•</span>
-            <a
-              href={PERSONAL_INFO.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 hover:text-cyan-400 transition"
-            >
-              <LinkedinIcon className="w-4 h-4 text-blue-400" />
-              <span>LinkedIn</span>
-            </a>
-          </div>
-
-          {/* Highlight Stats Strip */}
-          <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl pt-6 border-t border-slate-800/80">
-            {PERSONAL_INFO.stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center text-center transition hover:border-slate-700"
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 mb-10 w-full sm:w-auto">
+              <a
+                href="#projects"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
               >
-                <div className="text-2xl sm:text-3xl font-extrabold text-white mb-1 tracking-tight">
-                  <span className="text-cyan-400">{stat.value}</span>
-                </div>
-                <div className="text-xs font-semibold text-slate-300">{stat.label}</div>
-                <div className="text-[11px] text-slate-500 mt-0.5">{stat.sub}</div>
-              </div>
-            ))}
+                <Bot className="w-4 h-4 text-white" />
+                <span>Explore AI & Automation Projects</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </a>
+
+              <a
+                href="#contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-sm font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 transition-all shadow-sm"
+              >
+                <Zap className="w-4 h-4 text-blue-600" />
+                <span>Discuss AI Solutions</span>
+              </a>
+
+              <button
+                onClick={onOpenResume}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-sm font-bold text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 transition-all shadow-sm"
+              >
+                <Download className="w-4 h-4 text-blue-600" />
+                <span>Resume PDF</span>
+              </button>
+            </div>
+
+            {/* Fast Contact Channels */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-slate-600 text-xs sm:text-sm">
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                className="flex items-center gap-1.5 hover:text-blue-600 transition font-medium"
+              >
+                <Mail className="w-4 h-4 text-blue-600" />
+                <span>{PERSONAL_INFO.email}</span>
+              </a>
+              <span className="text-slate-300 hidden sm:inline">•</span>
+              <a
+                href={`tel:${PERSONAL_INFO.phone}`}
+                className="flex items-center gap-1.5 hover:text-blue-600 transition font-medium"
+              >
+                <Phone className="w-4 h-4 text-blue-600" />
+                <span>{PERSONAL_INFO.phone}</span>
+              </a>
+              <span className="text-slate-300 hidden sm:inline">•</span>
+              <a
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 hover:text-blue-600 transition font-medium"
+              >
+                <GithubIcon className="w-4 h-4 text-slate-700" />
+                <span>GitHub</span>
+              </a>
+              <span className="text-slate-300 hidden sm:inline">•</span>
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 hover:text-blue-600 transition font-medium"
+              >
+                <LinkedinIcon className="w-4 h-4 text-blue-600" />
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
           </div>
+
+          {/* Right Column: Profile Photo Card (White & Blue Professional Executive Frame) */}
+          <div className="lg:col-span-5 flex justify-center items-center relative">
+            
+            {/* Ambient Back Glow */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-300/30 to-sky-200/30 rounded-3xl blur-2xl -z-10" />
+
+            <div className="relative w-72 sm:w-80 p-3.5 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-blue-900/10">
+              
+              {/* Profile Image Viewport */}
+              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 flex flex-col items-center justify-center group">
+                
+                {!imageError && PERSONAL_INFO.avatarUrl ? (
+                  <img
+                    src={PERSONAL_INFO.avatarUrl}
+                    alt={PERSONAL_INFO.name}
+                    onError={() => setImageError(true)}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  /* Professional AI Developer Avatar Card */
+                  <div className="flex flex-col items-center justify-center p-6 text-center">
+                    <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-blue-600 via-blue-500 to-sky-400 flex items-center justify-center text-white mb-4 shadow-xl shadow-blue-500/25">
+                      <BrainCircuit className="w-12 h-12 text-white" />
+                    </div>
+                    <span className="text-xl font-extrabold text-slate-900 tracking-wide">
+                      SANJAY S
+                    </span>
+                    <span className="text-xs font-bold text-blue-600 mt-1 uppercase tracking-wider">
+                      AI Engineer & AI Developer
+                    </span>
+                    <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">
+                      Photo: Save <code className="text-blue-700 bg-blue-50 px-1 py-0.5 rounded font-mono">profile.jpg</code> in <code className="text-slate-700">frontend/public/</code> or set your photo link!
+                    </p>
+                  </div>
+                )}
+
+                {/* Corner Tech Badge */}
+                <div className="absolute top-3 left-3 bg-white/95 border border-slate-200 px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="text-[10px] font-bold text-slate-800 tracking-wider">AI ACTIVE</span>
+                </div>
+
+                <div className="absolute bottom-3 inset-x-3 bg-white/95 border border-slate-200 p-2.5 rounded-xl shadow-sm flex items-center justify-between text-xs">
+                  <div>
+                    <div className="font-extrabold text-slate-900 text-xs">SANJAY S</div>
+                    <div className="text-[10px] text-blue-600 font-semibold">AI & Automation Specialist</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-[10px] text-slate-500">Academic Standing</div>
+                    <div className="text-xs font-bold text-slate-900">83% B.E. CSE</div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Floating Pill Badges around photo */}
+              <div className="absolute -top-3 -right-3 bg-white border border-slate-200 px-3 py-1.5 rounded-xl shadow-lg shadow-blue-900/5 flex items-center gap-1.5">
+                <Cpu className="w-3.5 h-3.5 text-blue-600" />
+                <span className="text-[11px] font-bold text-slate-800">Groq LLM &lt;1s</span>
+              </div>
+
+              <div className="absolute -bottom-3 -left-3 bg-white border border-slate-200 px-3 py-1.5 rounded-xl shadow-lg shadow-blue-900/5 flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-blue-600" />
+                <span className="text-[11px] font-bold text-slate-800">n8n Automation</span>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
+        {/* Highlight Stats Strip */}
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-16 pt-8 border-t border-slate-200">
+          {PERSONAL_INFO.stats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="card-white card-white-hover p-4 sm:p-5 rounded-2xl flex flex-col items-center justify-center text-center"
+            >
+              <div className="text-2xl sm:text-3xl font-black text-blue-600 mb-1 tracking-tight">
+                {stat.value}
+              </div>
+              <div className="text-xs font-bold text-slate-900">{stat.label}</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">{stat.sub}</div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

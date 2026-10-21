@@ -9,7 +9,8 @@ import {
   BarChart3,
   Cpu,
   CheckCircle,
-  Code2,
+  Bot,
+  BrainCircuit,
 } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
 
@@ -18,18 +19,18 @@ export default function Skills() {
 
   const getCategoryIcon = (key: string) => {
     switch (key) {
-      case 'frontend':
-        return <Layout className="w-4 h-4 text-cyan-400" />;
-      case 'backend':
-        return <Server className="w-4 h-4 text-blue-400" />;
-      case 'database':
-        return <Database className="w-4 h-4 text-emerald-400" />;
+      case 'ai':
+        return <Bot className="w-4 h-4 text-blue-600" />;
       case 'automation':
-        return <Zap className="w-4 h-4 text-amber-400" />;
+        return <Zap className="w-4 h-4 text-blue-600" />;
+      case 'frontend':
+        return <Layout className="w-4 h-4 text-blue-600" />;
+      case 'database':
+        return <Database className="w-4 h-4 text-blue-600" />;
       case 'tools':
-        return <BarChart3 className="w-4 h-4 text-purple-400" />;
+        return <BarChart3 className="w-4 h-4 text-blue-600" />;
       default:
-        return <Code2 className="w-4 h-4 text-cyan-400" />;
+        return <BrainCircuit className="w-4 h-4 text-blue-600" />;
     }
   };
 
@@ -39,40 +40,42 @@ export default function Skills() {
       : SKILL_CATEGORIES.filter((cat) => cat.categoryKey === activeCategory);
 
   return (
-    <section id="skills" className="py-20 border-t border-slate-800/80 bg-slate-950/40 relative">
+    <section id="skills" className="py-20 border-t border-slate-200 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Heading */}
         <div className="flex flex-col items-center text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/60 border border-blue-800/50 text-blue-400 text-xs font-semibold mb-3">
-            <Cpu className="w-3.5 h-3.5" />
-            <span>TECHNICAL CAPABILITIES</span>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold mb-3 shadow-xs">
+            <Cpu className="w-3.5 h-3.5 text-blue-600" />
+            <span>AI, AUTOMATION & FULL-STACK TOOLKIT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Skills & <span className="text-cyan-400">Tech Stack</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Engineering & <span className="text-blue-600">AI Skill Stack</span>
           </h2>
-          <p className="mt-3 text-slate-400 max-w-2xl text-sm sm:text-base">
-            Categorized toolkit encompassing modern client interfaces, server logic, databases, AI pipelines, and analytics.
+          <p className="mt-3 text-slate-600 max-w-2xl text-sm sm:text-base">
+            Categorized toolkit encompassing modern Artificial Intelligence, multi-platform n8n workflows, full-stack web architectures, and cloud services.
           </p>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8 p-1.5 bg-slate-900/90 rounded-2xl border border-slate-800 backdrop-blur-md">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-sm">
             <button
               onClick={() => setActiveCategory('all')}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeCategory === 'all'
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
-              All Categories
+              All Skills
             </button>
             {SKILL_CATEGORIES.map((cat) => (
               <button
                 key={cat.categoryKey}
                 onClick={() => setActiveCategory(cat.categoryKey)}
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                   activeCategory === cat.categoryKey
-                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 {getCategoryIcon(cat.categoryKey)}
@@ -87,37 +90,37 @@ export default function Skills() {
           {filteredCategories.map((cat) => (
             <div
               key={cat.categoryKey}
-              className="glass-panel p-6 rounded-2xl flex flex-col justify-between border-slate-800/80 hover:border-slate-700 transition-all"
+              className="card-white card-white-hover p-6 rounded-3xl flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                    <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 shadow-xs">
                       {getCategoryIcon(cat.categoryKey)}
                     </div>
-                    <h3 className="text-base font-bold text-white">{cat.title}</h3>
+                    <h3 className="text-base font-extrabold text-slate-900">{cat.title}</h3>
                   </div>
-                  <span className="text-[11px] font-semibold text-cyan-400 bg-cyan-950/70 border border-cyan-800/60 px-2 py-0.5 rounded-md">
+                  <span className="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-lg">
                     {cat.skills.length} Skills
                   </span>
                 </div>
-                <p className="text-xs text-slate-400 mb-5 leading-relaxed">{cat.description}</p>
+                <p className="text-xs text-slate-500 mb-5 leading-relaxed">{cat.description}</p>
 
-                {/* Skills list with proficiency meters */}
+                {/* Skills list with progress meters */}
                 <div className="space-y-3.5">
                   {cat.skills.map((skill, sIdx) => (
                     <div key={sIdx} className="space-y-1">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-medium text-slate-200">{skill.name}</span>
+                        <span className="font-semibold text-slate-800">{skill.name}</span>
                         {skill.tag && (
-                          <span className="text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                          <span className="text-[10px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 font-semibold">
                             {skill.tag}
                           </span>
                         )}
                       </div>
-                      <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+                      <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-700"
+                          className="h-full bg-blue-600 rounded-full transition-all duration-700"
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>
@@ -127,13 +130,14 @@ export default function Skills() {
               </div>
 
               {/* Bottom tag info */}
-              <div className="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400">
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                 <span>Verified in production projects</span>
-                <CheckCircle className="w-3.5 h-3.5 text-cyan-400" />
+                <CheckCircle className="w-3.5 h-3.5 text-blue-600" />
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

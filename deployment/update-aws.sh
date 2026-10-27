@@ -15,8 +15,8 @@ npm install
 npm run build
 cd ..
 
-echo "🚀 Restarting PM2 processes (zero-downtime reload)..."
-pm2 reload all
+echo "🚀 Restarting PM2 processes..."
+pm2 restart all
 
 echo "======================================================================"
 echo "🎉 SUCCESS! Your live website has been updated with the latest changes."

@@ -280,7 +280,10 @@ export default function Projects() {
               <div>
                 
                 {/* Visual Project Photo / Mockup Container */}
-                <div className="relative w-full aspect-[16/9] overflow-hidden bg-slate-100 border-b border-slate-200">
+                <div
+                  className="relative w-full aspect-[16/9] max-h-[260px] overflow-hidden bg-slate-100 border-b border-slate-200"
+                  style={{ maxHeight: '260px' }}
+                >
                   {project.imageUrl && !imageErrors[project.id] ? (
                     <img
                       src={project.imageUrl}
@@ -288,6 +291,7 @@ export default function Projects() {
                       onError={() =>
                         setImageErrors((prev) => ({ ...prev, [project.id]: true }))
                       }
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (

@@ -135,13 +135,16 @@ export default function Hero({ onOpenResume }: HeroProps) {
             <div className="relative w-72 sm:w-80 p-3.5 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-blue-900/10">
               
               {/* Profile Image Viewport */}
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 flex flex-col items-center justify-center group">
-                
+              <div
+                className="relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 flex flex-col items-center justify-center group"
+                style={{ maxHeight: '380px' }}
+              >
                 {!imageError && PERSONAL_INFO.avatarUrl ? (
                   <img
                     src={PERSONAL_INFO.avatarUrl}
                     alt={PERSONAL_INFO.name}
                     onError={() => setImageError(true)}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (

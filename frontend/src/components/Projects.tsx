@@ -10,6 +10,13 @@ import {
   Layers,
   CheckCircle2,
   Sparkles,
+  Cpu,
+  Workflow,
+  Database,
+  ShieldCheck,
+  Globe,
+  ArrowRight,
+  Code2,
 } from 'lucide-react';
 import { PROJECTS_DATA, ProjectItem } from '../data/portfolioData';
 import { GithubIcon } from './Icons';
@@ -48,46 +55,167 @@ export default function Projects() {
   };
 
   const getProjectVisualGraphic = (project: ProjectItem) => {
-    if (project.category === 'AI & ML') {
+    // Specific Custom High-Tech Mockup for AI Product Recommendation
+    if (project.id === 'ai-product-recommendation') {
       return (
-        <div className="w-full h-full bg-gradient-to-tr from-blue-50 via-sky-50 to-white flex flex-col items-center justify-center p-6 text-center relative overflow-hidden border-b border-slate-200">
-          <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600 text-white text-[10px] font-bold shadow-xs">
-            <Bot className="w-3 h-3" />
-            <span>AI MODEL</span>
+        <div className="w-full h-full bg-gradient-to-br from-blue-900 via-slate-900 to-slate-950 p-6 flex flex-col justify-between text-white relative overflow-hidden border-b border-slate-200">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="flex items-center justify-between z-10">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-[11px] font-mono font-bold border border-blue-500/30">
+              <Cpu className="w-3.5 h-3.5 text-blue-400" />
+              GROQ LPU™ INFERENCE
+            </span>
+            <span className="text-[11px] font-mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/50">
+              ⚡ &lt; 1s Latency
+            </span>
           </div>
-          <div className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-white mb-3 shadow-lg shadow-blue-600/25">
-            <Bot className="w-8 h-8 text-white" />
+
+          <div className="my-auto py-3 space-y-2 z-10">
+            <div className="bg-slate-800/80 backdrop-blur rounded-xl p-3 border border-slate-700/60 text-xs">
+              <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1 flex items-center gap-1">
+                <Code2 className="w-3 h-3 text-blue-400" />
+                Prompt Inference Query
+              </div>
+              <p className="text-slate-200 font-mono text-[11px] truncate">
+                &quot;Analyze behavioral signals &amp; recommend personalized items&quot;
+              </p>
+            </div>
+            <div className="flex items-center justify-center gap-2 text-blue-400 text-xs font-mono font-semibold">
+              <span>React Client</span>
+              <ArrowRight className="w-3.5 h-3.5 animate-pulse" />
+              <span className="text-cyan-300">Groq LLM Pipeline</span>
+              <ArrowRight className="w-3.5 h-3.5 animate-pulse" />
+              <span className="text-emerald-400">Real-Time Result</span>
+            </div>
           </div>
-          <span className="text-slate-900 font-extrabold text-sm sm:text-base tracking-wide">
-            {project.title}
-          </span>
-          <span className="text-xs text-blue-600 font-bold mt-1">
-            {project.metrics}
-          </span>
+
+          <div className="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-2 z-10">
+            <span className="font-semibold text-slate-300">Sub-second Contextual Recommendation</span>
+            <span className="text-emerald-400 font-bold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              ONLINE
+            </span>
+          </div>
         </div>
       );
     }
 
-    if (project.category === 'Automation') {
+    // Specific Custom High-Tech Mockup for n8n Workflow Automation
+    if (project.id === 'n8n-workflow-automation') {
       return (
-        <div className="w-full h-full bg-gradient-to-tr from-sky-50 via-blue-50 to-white flex flex-col items-center justify-center p-6 text-center relative overflow-hidden border-b border-slate-200">
-          <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-sky-600 text-white text-[10px] font-bold shadow-xs">
-            <Zap className="w-3 h-3" />
-            <span>n8n WORKFLOW</span>
+        <div className="w-full h-full bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 p-6 flex flex-col justify-between text-white relative overflow-hidden border-b border-slate-200">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="flex items-center justify-between z-10">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-sky-500/20 text-sky-300 text-[11px] font-mono font-bold border border-sky-500/30">
+              <Workflow className="w-3.5 h-3.5 text-sky-400" />
+              n8n MULTI-CHANNEL PIPELINE
+            </span>
+            <span className="text-[11px] font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
+              ✓ 100% Automated
+            </span>
           </div>
-          <div className="w-16 h-16 rounded-2xl bg-sky-600 flex items-center justify-center text-white mb-3 shadow-lg shadow-sky-600/25">
-            <Zap className="w-8 h-8 text-white" />
+
+          <div className="my-auto py-2 z-10">
+            <div className="grid grid-cols-3 gap-2 text-center text-xs">
+              <div className="p-2.5 rounded-xl bg-slate-800/90 border border-slate-700">
+                <div className="text-[10px] text-sky-400 font-bold">1. TRIGGER</div>
+                <div className="text-[11px] font-mono text-white mt-1">Webhook Node</div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-sky-950/80 border border-sky-600/40">
+                <div className="text-[10px] text-cyan-300 font-bold">2. ROUTER</div>
+                <div className="text-[11px] font-mono text-white mt-1">Transform JSON</div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-slate-800/90 border border-slate-700">
+                <div className="text-[10px] text-emerald-400 font-bold">3. DELIVERY</div>
+                <div className="text-[11px] font-mono text-white mt-1">Gmail + Social</div>
+              </div>
+            </div>
           </div>
-          <span className="text-slate-900 font-extrabold text-sm sm:text-base tracking-wide">
-            {project.title}
-          </span>
-          <span className="text-xs text-sky-700 font-bold mt-1">
-            {project.metrics}
-          </span>
+
+          <div className="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-2 z-10">
+            <span className="font-semibold text-slate-300">Gmail • LinkedIn • Facebook Orchestration</span>
+            <span className="text-sky-300 font-mono font-bold">Auto-Recovery Active</span>
+          </div>
         </div>
       );
     }
 
+    // Specific Custom High-Tech Mockup for Student Management System
+    if (project.id === 'student-management-system') {
+      return (
+        <div className="w-full h-full bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-6 flex flex-col justify-between text-white relative overflow-hidden border-b border-slate-200">
+          <div className="flex items-center justify-between z-10">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 text-[11px] font-mono font-bold border border-indigo-500/30">
+              <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+              MVC &amp; ROLE-BASED SYSTEM
+            </span>
+            <span className="text-[11px] font-mono text-indigo-200 bg-indigo-950/60 px-2 py-0.5 rounded border border-indigo-800/50">
+              Java + MySQL
+            </span>
+          </div>
+
+          <div className="my-auto py-2 z-10">
+            <div className="flex items-center justify-around gap-2 text-center text-xs">
+              <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700 flex-1">
+                <span className="text-[10px] text-slate-400 block">VIEW</span>
+                <span className="text-[11px] font-bold text-white">HTML5/CSS3</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+              <div className="p-2 rounded-lg bg-indigo-950/80 border border-indigo-600/40 flex-1">
+                <span className="text-[10px] text-indigo-300 block">CONTROLLER</span>
+                <span className="text-[11px] font-bold text-white">Java Servlets</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+              <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700 flex-1">
+                <span className="text-[10px] text-slate-400 block">DATABASE</span>
+                <span className="text-[11px] font-bold text-white">MySQL JDBC</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-2 z-10">
+            <span className="font-semibold text-slate-300">Admin • Faculty • Student Portals</span>
+            <span className="text-emerald-400 font-mono font-bold">CRUD Verified</span>
+          </div>
+        </div>
+      );
+    }
+
+    // Specific Custom High-Tech Mockup for Portfolio Platform
+    if (project.id === 'modern-developer-portfolio') {
+      return (
+        <div className="w-full h-full bg-gradient-to-br from-slate-900 via-blue-950 to-slate-950 p-6 flex flex-col justify-between text-white relative overflow-hidden border-b border-slate-200">
+          <div className="flex items-center justify-between z-10">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-[11px] font-mono font-bold border border-blue-500/30">
+              <Globe className="w-3.5 h-3.5 text-blue-400" />
+              AWS CLOUD DEPLOYMENT
+            </span>
+            <span className="text-[11px] font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
+              SSL HTTPS Live
+            </span>
+          </div>
+
+          <div className="my-auto py-2 z-10">
+            <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-xs font-mono">
+              <span className="text-blue-400 font-bold">Next.js 16</span>
+              <span className="text-slate-500">→</span>
+              <span className="text-sky-300 font-bold">Nginx SSL</span>
+              <span className="text-slate-500">→</span>
+              <span className="text-indigo-300 font-bold">PM2 Cluster</span>
+              <span className="text-slate-500">→</span>
+              <span className="text-emerald-400 font-bold">Docker Mongo</span>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-2 z-10">
+            <span className="font-mono text-cyan-300">sanjaysportfolio.duckdns.org</span>
+            <span className="text-emerald-400 font-mono font-bold">Zero-Downtime Reload</span>
+          </div>
+        </div>
+      );
+    }
+
+    // Default Fallback
     return (
       <div className="w-full h-full bg-gradient-to-tr from-slate-100 via-slate-50 to-white flex flex-col items-center justify-center p-6 text-center relative overflow-hidden border-b border-slate-200">
         <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 text-white text-[10px] font-bold shadow-xs">

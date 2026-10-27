@@ -92,7 +92,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
     metrics: "< 1s AI Response",
-    imageUrl: "/projects/ai-recommendation.png",
     accentColor: "from-blue-600 to-cyan-500",
   },
   {
@@ -112,7 +111,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
     metrics: "90%+ ML Accuracy",
-    imageUrl: "/projects/sign-language.png",
+    imageUrl: "/projects/sign-language.jpg",
     accentColor: "from-cyan-500 to-blue-600",
   },
   {
@@ -132,7 +131,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
     metrics: "100% Automated Workflow",
-    imageUrl: "/projects/n8n-automation.png",
     accentColor: "from-blue-500 to-indigo-600",
   },
   {
@@ -152,7 +150,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
     metrics: "Role-Based Security",
-    imageUrl: "/projects/student-system.png",
     accentColor: "from-cyan-600 to-blue-700",
   },
   {
@@ -172,7 +169,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://github.com/Sanjaygithub-87/Portfolio-website",
     featured: true,
     metrics: "AWS Free Tier Live",
-    imageUrl: "/projects/portfolio.png",
     accentColor: "from-blue-600 to-sky-400",
   },
 ];

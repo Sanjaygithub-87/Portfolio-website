@@ -5,7 +5,7 @@ import {
   ArrowRight,
   Download,
   Mail,
-  Phone,
+  MapPin,
   Sparkles,
   Bot,
   Zap,
@@ -88,22 +88,19 @@ export default function Hero({ onOpenResume }: HeroProps) {
               </button>
             </div>
 
-            {/* Fast Contact Channels */}
+            {/* Fast Connect Channels (Privacy Preserved: No direct phone or personal email exposed) */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-slate-600 text-xs sm:text-sm">
+              <div className="flex items-center gap-1.5 font-medium text-slate-700">
+                <MapPin className="w-4 h-4 text-blue-600" />
+                <span>Chennai, India</span>
+              </div>
+              <span className="text-slate-300 hidden sm:inline">•</span>
               <a
-                href={`mailto:${PERSONAL_INFO.email}`}
+                href="#contact"
                 className="flex items-center gap-1.5 hover:text-blue-600 transition font-medium"
               >
                 <Mail className="w-4 h-4 text-blue-600" />
-                <span>{PERSONAL_INFO.email}</span>
-              </a>
-              <span className="text-slate-300 hidden sm:inline">•</span>
-              <a
-                href={`tel:${PERSONAL_INFO.phone}`}
-                className="flex items-center gap-1.5 hover:text-blue-600 transition font-medium"
-              >
-                <Phone className="w-4 h-4 text-blue-600" />
-                <span>{PERSONAL_INFO.phone}</span>
+                <span>Send Direct Message</span>
               </a>
               <span className="text-slate-300 hidden sm:inline">•</span>
               <a

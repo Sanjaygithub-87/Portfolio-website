@@ -4,11 +4,8 @@ import React from 'react';
 import {
   Code2,
   Heart,
-  Mail,
-  Phone,
   Cloud,
   Database,
-  Server,
   Layers,
   ArrowUp,
   Bot,
@@ -68,12 +65,10 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 font-medium">
             <span>© 2026 Sanjay S. All rights reserved.</span>
             <span>•</span>
-            <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-blue-600 transition">
-              {PERSONAL_INFO.email}
-            </a>
+            <span>Chennai, Tamil Nadu, India</span>
             <span>•</span>
-            <a href={`tel:${PERSONAL_INFO.phone}`} className="hover:text-blue-600 transition">
-              {PERSONAL_INFO.phone}
+            <a href="#contact" className="hover:text-blue-600 transition font-bold text-blue-600">
+              Contact / Send Message
             </a>
           </div>
 

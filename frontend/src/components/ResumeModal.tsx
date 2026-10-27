@@ -5,7 +5,6 @@ import {
   X,
   Printer,
   Mail,
-  Phone,
   MapPin,
   ExternalLink,
   Award,
@@ -84,8 +83,8 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </p>
             </div>
             <div className="text-xs text-slate-600 space-y-1 text-center sm:text-right font-medium">
-              <div>{PERSONAL_INFO.email}</div>
-              <div>{PERSONAL_INFO.phone} • {PERSONAL_INFO.location}</div>
+              <div>Chennai, Tamil Nadu, India</div>
+              <div>Contact via Portfolio Message Form</div>
               <div className="flex items-center justify-center sm:justify-end gap-3 text-blue-600 font-bold">
                 <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</a>
                 <span>•</span>
@@ -115,7 +114,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               <div><strong className="text-slate-900">Front-End:</strong> React, Next.js, JavaScript, HTML5, CSS3, Tailwind CSS, Responsive Web Design</div>
               <div><strong className="text-slate-900">Back-End & DB:</strong> Node.js, Express, Java, Servlets, JDBC, MongoDB, MySQL, MVC Architecture, SDLC</div>
               <div><strong className="text-slate-900">BI & Analytics:</strong> IBM Cognos Analytics (Certified - dashboards, reports, data modeling)</div>
-              <div><strong className="text-slate-900">Cloud & Tools:</strong> AWS EC2 (Free Tier), Nginx Reverse Proxy, Git & GitHub, Postman, VS Code</div>
+              <div><strong className="text-slate-900">Cloud & Tools:</strong> AWS EC2 (Free Tier), Docker, Nginx Reverse Proxy, Git & GitHub, Postman, VS Code</div>
             </div>
           </div>
 

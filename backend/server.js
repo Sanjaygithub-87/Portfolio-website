@@ -196,6 +196,49 @@ app.get('/api/projects', async (req, res) => {
   }
 });
 
+// Helper: Send Instant Telegram Alert to Sanjay
+async function sendTelegramAlert({ name, email, subject, message }) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!token || !chatId) {
+    return;
+  }
+
+  const text =
+`🚀 *New Portfolio Inquiry Received!*
+
+👤 *Name:* ${name}
+📧 *Email:* ${email}
+📌 *Subject:* ${subject || 'Portfolio Inquiry'}
+
+💬 *Message:*
+${message}
+
+⏰ *Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
+
+  try {
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text,
+        parse_mode: 'Markdown',
+      }),
+    });
+    const data = await res.json();
+    if (!data.ok) {
+      console.warn('⚠️ Telegram notification failed:', data.description);
+    } else {
+      console.log('✅ Instant Telegram notification sent to Sanjay!');
+    }
+  } catch (err) {
+    console.warn('⚠️ Telegram notification error:', err.message);
+  }
+}
+
 // 3. Contact Form Submission
 app.post('/api/contact', contactLimiter, async (req, res) => {
   try {
@@ -226,6 +269,11 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
       ipAddress,
       createdAt: new Date(),
     };
+
+    // Trigger instant Telegram alert to Sanjay (non-blocking)
+    sendTelegramAlert(newContactData).catch((err) => {
+      console.warn('Telegram alert background error:', err.message);
+    });
 
     if (isMongoConnected) {
       const savedDoc = await Contact.create(newContactData);

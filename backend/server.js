@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const path = require('path');
 const dotenv = require('dotenv');
 
-dotenv.config();
+// Load environment variables from both backend directory and root directory
+dotenv.config({ path: path.join(__dirname, '.env') });
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const Contact = require('./models/Contact');
 const Project = require('./models/Project');
@@ -198,11 +201,12 @@ app.get('/api/projects', async (req, res) => {
 
 // Helper: Send Instant Telegram Alert to Sanjay
 async function sendTelegramAlert({ name, email, subject, message }) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const token = process.env.TELEGRAM_BOT_TOKEN || '9012808425:AAHW0yBbajgIgByWByjduXpRE-RN7QhfIYY';
+  const chatId = process.env.TELEGRAM_CHAT_ID || '6559033674';
 
   if (!token || !chatId) {
-    return;
+    console.warn('⚠️ Telegram bot credentials missing.');
+    return { ok: false, error: 'Token or Chat ID missing' };
   }
 
   const text =
@@ -234,10 +238,27 @@ ${message}
     } else {
       console.log('✅ Instant Telegram notification sent to Sanjay!');
     }
+    return data;
   } catch (err) {
     console.warn('⚠️ Telegram notification error:', err.message);
+    return { ok: false, error: err.message };
   }
 }
+
+// Direct Telegram Bot Self-Test Route
+app.get('/api/test-telegram', async (req, res) => {
+  try {
+    const result = await sendTelegramAlert({
+      name: 'System Self-Test',
+      email: 'sanjayedu045@gmail.com',
+      subject: 'Telegram Bot Live Connectivity Check',
+      message: 'Hello Sanjay! Your Telegram notification pipeline is working 100%!',
+    });
+    return res.json({ success: result.ok, telegramResponse: result });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
 
 // 3. Contact Form Submission
 app.post('/api/contact', contactLimiter, async (req, res) => {

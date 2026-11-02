@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const https = require('https');
 const dotenv = require('dotenv');
 
 // Load environment variables from both backend directory and root directory
@@ -199,17 +200,18 @@ app.get('/api/projects', async (req, res) => {
   }
 });
 
-// Helper: Send Instant Telegram Alert to Sanjay
-async function sendTelegramAlert({ name, email, subject, message }) {
-  const token = process.env.TELEGRAM_BOT_TOKEN || '9012808425:AAHW0yBbajgIgByWByjduXpRE-RN7QhfIYY';
-  const chatId = process.env.TELEGRAM_CHAT_ID || '6559033674';
+// Helper: Send Instant Telegram Alert to Sanjay via IPv4-safe https
+function sendTelegramAlert({ name, email, subject, message }) {
+  return new Promise((resolve) => {
+    const token = process.env.TELEGRAM_BOT_TOKEN || '9012808425:AAHW0yBbajgIgByWByjduXpRE-RN7QhfIYY';
+    const chatId = process.env.TELEGRAM_CHAT_ID || '6559033674';
 
-  if (!token || !chatId) {
-    console.warn('⚠️ Telegram bot credentials missing.');
-    return { ok: false, error: 'Token or Chat ID missing' };
-  }
+    if (!token || !chatId) {
+      console.warn('⚠️ Telegram bot credentials missing.');
+      return resolve({ ok: false, error: 'Token or Chat ID missing' });
+    }
 
-  const text =
+    const text =
 `🚀 *New Portfolio Inquiry Received!*
 
 👤 *Name:* ${name}
@@ -221,28 +223,57 @@ ${message}
 
 ⏰ *Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
 
-  try {
-    const url = `https://api.telegram.org/bot${token}/sendMessage`;
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text,
-        parse_mode: 'Markdown',
-      }),
+    const payload = JSON.stringify({
+      chat_id: chatId,
+      text,
+      parse_mode: 'Markdown',
     });
-    const data = await res.json();
-    if (!data.ok) {
-      console.warn('⚠️ Telegram notification failed:', data.description);
-    } else {
-      console.log('✅ Instant Telegram notification sent to Sanjay!');
-    }
-    return data;
-  } catch (err) {
-    console.warn('⚠️ Telegram notification error:', err.message);
-    return { ok: false, error: err.message };
-  }
+
+    const options = {
+      hostname: 'api.telegram.org',
+      port: 443,
+      path: `/bot${token}/sendMessage`,
+      method: 'POST',
+      family: 4, // Force IPv4 for AWS EC2 VPC reliability
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload),
+      },
+      timeout: 8000,
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          if (!parsed.ok) {
+            console.warn('⚠️ Telegram API returned error:', parsed.description);
+          } else {
+            console.log('✅ Instant Telegram notification sent successfully to Sanjay!');
+          }
+          resolve(parsed);
+        } catch (e) {
+          resolve({ ok: res.statusCode === 200, raw: data });
+        }
+      });
+    });
+
+    req.on('error', (err) => {
+      console.warn('⚠️ Telegram request error:', err.message);
+      resolve({ ok: false, error: err.message });
+    });
+
+    req.on('timeout', () => {
+      req.destroy();
+      console.warn('⚠️ Telegram request timed out.');
+      resolve({ ok: false, error: 'Request timed out' });
+    });
+
+    req.write(payload);
+    req.end();
+  });
 }
 
 // Direct Telegram Bot Self-Test Route

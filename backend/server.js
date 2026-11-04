@@ -203,8 +203,8 @@ app.get('/api/projects', async (req, res) => {
 // Helper: Send Instant Telegram Alert to Sanjay via IPv4-safe https
 function sendTelegramAlert({ name, email, subject, message }) {
   return new Promise((resolve) => {
-    const token = process.env.TELEGRAM_BOT_TOKEN || '9012808425:AAHW0yBbajgIgByWByjduXpRE-RN7QhfIYY';
-    const chatId = process.env.TELEGRAM_CHAT_ID || '6559033674';
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
 
     if (!token || !chatId) {
       console.warn('⚠️ Telegram bot credentials missing.');

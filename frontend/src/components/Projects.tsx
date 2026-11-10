@@ -63,7 +63,7 @@ export default function Projects() {
           <div className="flex items-center justify-between z-10">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-[11px] font-mono font-bold border border-blue-500/30">
               <Cpu className="w-3.5 h-3.5 text-blue-400" />
-              GROQ LPU™ INFERENCE
+              GROQ LPU™ &amp; PROMPT ENG
             </span>
             <span className="text-[11px] font-mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/50">
               ⚡ &lt; 1s Latency
@@ -74,18 +74,18 @@ export default function Projects() {
             <div className="bg-slate-800/80 backdrop-blur rounded-xl p-3 border border-slate-700/60 text-xs">
               <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1 flex items-center gap-1">
                 <Code2 className="w-3 h-3 text-blue-400" />
-                Prompt Inference Query
+                Prompt Engineering (CoT + Few-Shot)
               </div>
               <p className="text-slate-200 font-mono text-[11px] truncate">
-                &quot;Analyze behavioral signals &amp; recommend personalized items&quot;
+                &quot;Context: user preferences ➔ Chain-of-Thought inference ➔ instant recommendation&quot;
               </p>
             </div>
             <div className="flex items-center justify-center gap-2 text-blue-400 text-xs font-mono font-semibold">
-              <span>React Client</span>
+              <span className="text-indigo-300">Google Stitch UI</span>
               <ArrowRight className="w-3.5 h-3.5 animate-pulse" />
-              <span className="text-cyan-300">Groq LLM Pipeline</span>
+              <span className="text-cyan-300">Prompt Optimizer</span>
               <ArrowRight className="w-3.5 h-3.5 animate-pulse" />
-              <span className="text-emerald-400">Real-Time Result</span>
+              <span className="text-emerald-400">Groq LLM (&lt;1s)</span>
             </div>
           </div>
 
@@ -187,29 +187,29 @@ export default function Projects() {
         <div className="w-full h-full bg-gradient-to-br from-slate-900 via-blue-950 to-slate-950 p-6 flex flex-col justify-between text-white relative overflow-hidden border-b border-slate-200">
           <div className="flex items-center justify-between z-10">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-[11px] font-mono font-bold border border-blue-500/30">
-              <Globe className="w-3.5 h-3.5 text-blue-400" />
-              AWS CLOUD DEPLOYMENT
+              <Bot className="w-3.5 h-3.5 text-blue-400" />
+              ANTIGRAVITY + GOOGLE STITCH
             </span>
             <span className="text-[11px] font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/50">
-              SSL HTTPS Live
+              AWS EC2 Live
             </span>
           </div>
 
           <div className="my-auto py-2 z-10">
-            <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-xs font-mono">
-              <span className="text-blue-400 font-bold">Next.js 16</span>
+            <div className="flex items-center justify-between gap-1.5 p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-[11px] font-mono">
+              <span className="text-indigo-300 font-bold">Google Stitch</span>
               <span className="text-slate-500">→</span>
-              <span className="text-sky-300 font-bold">Nginx SSL</span>
+              <span className="text-blue-400 font-bold">Antigravity AI</span>
               <span className="text-slate-500">→</span>
-              <span className="text-indigo-300 font-bold">PM2 Cluster</span>
+              <span className="text-sky-300 font-bold">Next.js 16</span>
               <span className="text-slate-500">→</span>
-              <span className="text-emerald-400 font-bold">Docker Mongo</span>
+              <span className="text-emerald-400 font-bold">AWS + Mongo</span>
             </div>
           </div>
 
           <div className="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-2 z-10">
-            <span className="font-mono text-cyan-300">sanjaysportfolio.duckdns.org</span>
-            <span className="text-emerald-400 font-mono font-bold">Zero-Downtime Reload</span>
+            <span className="font-mono text-cyan-300">Agentic Architecture • Telegram Alerts</span>
+            <span className="text-emerald-400 font-mono font-bold">Zero-Downtime</span>
           </div>
         </div>
       );

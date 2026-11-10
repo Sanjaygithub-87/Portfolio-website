@@ -106,15 +106,14 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           {/* Technical Skills */}
           <div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-blue-700 border-b border-slate-200 pb-1 mb-2">
-              Technical Skills & AI Toolkit
+              Technical Skills &amp; AI Toolkit
             </h2>
             <div className="text-xs sm:text-sm text-slate-700 space-y-1.5 font-normal">
-              <div><strong className="text-slate-900">AI & Machine Learning:</strong> Groq LLM API, Prompt Engineering, Python, OpenCV, Computer Vision, Model Integration</div>
-              <div><strong className="text-slate-900">Automation & Integration:</strong> n8n Workflow Builder, Webhook triggers, REST API Integration, JSON Mapping, Error Handling</div>
-              <div><strong className="text-slate-900">Front-End:</strong> React, Next.js, JavaScript, HTML5, CSS3, Tailwind CSS, Responsive Web Design</div>
-              <div><strong className="text-slate-900">Back-End & DB:</strong> Node.js, Express, Java, Servlets, JDBC, MongoDB, MySQL, MVC Architecture, SDLC</div>
-              <div><strong className="text-slate-900">BI & Analytics:</strong> IBM Cognos Analytics (Certified - dashboards, reports, data modeling)</div>
-              <div><strong className="text-slate-900">Cloud & Tools:</strong> AWS EC2 (Free Tier), Docker, Nginx Reverse Proxy, Git & GitHub, Postman, VS Code</div>
+              <div><strong className="text-slate-900">Agentic AI &amp; Prompting:</strong> Antigravity (Google DeepMind Agentic Coding), Advanced Prompt Engineering (Chain-of-Thought, System Prompts), Groq LLM API (&lt;1s inference), Python, OpenCV Computer Vision, Multi-Agent Workflows</div>
+              <div><strong className="text-slate-900">Workflow Automation:</strong> n8n Workflow Builder, Webhook Triggers, Multi-Channel Pipelines (Gmail, LinkedIn, Facebook), JSON Mapping, Self-Healing Error Handlers</div>
+              <div><strong className="text-slate-900">UI/UX &amp; Front-End:</strong> Google Stitch for UI/UX Building &amp; Rapid Wireframing, React 19, Next.js 16 (App Router), Tailwind CSS v4, Component Design Systems</div>
+              <div><strong className="text-slate-900">Back-End &amp; DB:</strong> Node.js, Express REST APIs, Docker, MongoDB 7.0, MySQL, Java Servlets, JDBC, MVC Architecture</div>
+              <div><strong className="text-slate-900">Cloud, DevOps &amp; Tools:</strong> AWS EC2 (Free Tier), Nginx Reverse Proxy, Let&apos;s Encrypt SSL, PM2 Process Manager, Git &amp; GitHub, Postman, IBM Cognos Analytics (Certified)</div>
             </div>
           </div>
 

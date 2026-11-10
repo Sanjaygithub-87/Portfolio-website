@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   Workflow,
   Cpu,
+  Palette,
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
@@ -19,27 +20,27 @@ export default function About() {
   const pillars = [
     {
       icon: <Bot className="w-5 h-5 text-blue-600" />,
-      title: "AI Development & LLM Engineering",
+      title: "Antigravity & Agentic AI Systems",
       description:
-        "Building production AI solutions with sub-second inference using Groq API, prompt engineering, and conversational intelligence to automate user experiences.",
+        "Leveraging Google DeepMind Antigravity for autonomous agentic workflows, multi-agent pair programming, and production-grade software delivery.",
     },
     {
-      icon: <Cpu className="w-5 h-5 text-blue-600" />,
-      title: "Computer Vision & ML Classification",
-      description:
-        "Designing real-time Computer Vision pipelines using Python, OpenCV, and deep learning models achieving 90%+ recognition accuracy for gesture classification.",
-    },
-    {
-      icon: <Workflow className="w-5 h-5 text-blue-600" />,
-      title: "n8n Workflow Automation",
+      icon: <Zap className="w-5 h-5 text-sky-600" />,
+      title: "Enterprise n8n Workflow Automation",
       description:
         "Orchestrating end-to-end multi-platform pipelines across Gmail, LinkedIn, Facebook, and custom webhooks with automated error recovery and data mapping.",
     },
     {
-      icon: <Layers className="w-5 h-5 text-blue-600" />,
-      title: "Scalable Full-Stack Web Systems",
+      icon: <Palette className="w-5 h-5 text-indigo-600" />,
+      title: "Google Stitch UI/UX & Rapid Prototyping",
       description:
-        "Bridging AI backends with modern client interfaces using Next.js 16, React 19, Node.js Express, MongoDB, and AWS cloud hosting environments.",
+        "Rapidly designing high-converting visual UI/UX wireframes and modern interfaces with Google Stitch, converted seamlessly into clean Next.js/React components.",
+    },
+    {
+      icon: <Sparkles className="w-5 h-5 text-blue-600" />,
+      title: "Advanced Prompt Engineering & LLMs",
+      description:
+        "Engineering Chain-of-Thought (CoT), few-shot prompt architectures, and context optimization to achieve sub-second inferences on Groq LPU and modern LLMs.",
     },
   ];
 
@@ -97,24 +98,24 @@ export default function About() {
             {/* Core Value Checklist */}
             <div className="card-white p-6 rounded-3xl">
               <h4 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-4">
-                What I Deliver to Projects & Clients
+                What I Deliver to Projects &amp; Clients
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
                 <div className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Sub-second AI LLM API integrations (Groq)</span>
+                  <span>Autonomous agentic coding workflows with Antigravity</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+                  <span>Full-cycle enterprise n8n workflow pipeline automation</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                  <span>Rapid UI/UX visual building &amp; wireframing with Google Stitch</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Full-cycle n8n workflow pipeline automation</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Real-time Computer Vision gesture models (90%+)</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Production cloud architecture on AWS with MongoDB</span>
+                  <span>Precision Prompt Engineering &amp; sub-second Groq LLM APIs</span>
                 </div>
               </div>
             </div>

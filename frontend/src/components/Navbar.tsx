@@ -53,7 +53,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                 <span className="text-blue-600 font-extrabold">.S</span>
               </div>
               <span className="text-[10px] text-blue-600 font-bold tracking-wider uppercase mt-0.5">
-                AI Engineer & Developer
+                AI &amp; Agentic Automation
               </span>
             </div>
           </a>
